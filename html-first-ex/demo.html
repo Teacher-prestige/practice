@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        <style>
+            p, ul {
+                padding: 20px;
+                text-align: center;
+                text-decoration: line-through;
+                font-size: 36px;
+                font-family:'Courier New', Courier, monospace;
+                color: white;
+                font-weight: bold;
+                background-color: blueviolet;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            img:hover{
+                cursor: pointer;
+            }
+
+            body ul {
+                text-decoration: underline;
+            }
+
+            #val {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello, Hello, Hello, Hello</p>
+        <ul>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+        </ul>
+        <img src="img1.JPG">
+        <p id="val">1</p>
+        <button id="but">Click on me</button>
+        <button id="reset">Reset</button>
+        <script>
+            const val = document.getElementById("val");
+            const but = document.getElementById("but");
+            but.addEventListener("click", () => {
+                val.innerText = parseInt(val.innerText) + 1;
+            })
+            document.getElementById("reset").addEventListener("click", () => {
+                val.innerText = 1;
+            });
+        </script>
+    </body>
+</html>
