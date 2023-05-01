@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Малювання</title>
+    <style>
+        canvas {
+            border: double palevioletred 4px;
+        }
+    </style>
+    <script type="application/javascript">
+
+        function draw() {
+            const canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                const ctx = canvas.getContext("2d");
+
+                //додайте свій код сюди
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw();">
+    <canvas id="canvas" width="170" height="255"></canvas>
+</body>
+
+</html>
