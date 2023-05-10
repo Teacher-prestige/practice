@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Canvas experiment</title>
+    <style>
+        canvas {
+            border: double black 4px;
+        }
+        input {
+            border: solid blue 4px;
+            width: 800px;
+        }
+    </style>
+    <script type="application/javascript">
+        function draw() {
+            const canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                const ctx = canvas.getContext("2d");
+                ctx.clearRect(0, 0, 800, 400);
+
+                const nums = document.getElementById('numbers')
+                    .value.split(',').map(i => Number(i));
+
+                let max = Math.max(...nums);
+                let min = Math.min(...nums);
+                let dx = 800 / (nums.length - 1);
+                let dy = 400 / (max - min);
+
+                ctx.strokeStyle = 'red';
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(0, getY(nums[0]));
+
+                for(let i = 1; i < nums.length; i++){
+                    ctx.lineTo(i * dx, getY(nums[i]));
+                }
+
+                ctx.stroke();
+
+                function getY(value){
+                    return 400 - (value - min) * dy;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Введіть цифри розділені комами</h2>
+    <input type="text" id="numbers" onchange="draw()"/>
+    <br>
+    <canvas id="canvas" width="800" height="400"></canvas>
+</body>
+
+</html>
